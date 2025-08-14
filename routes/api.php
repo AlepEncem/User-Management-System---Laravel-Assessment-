@@ -1,0 +1,18 @@
+<?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\UserController;
+
+// Test route
+Route::get('/test', function () {
+    return response()->json(['message' => 'API is working!']);
+});
+
+// User routes
+Route::get('/users', [UserController::class, 'index']);
+Route::post('/users', [UserController::class, 'store']);
+Route::get('/users/{id}', [UserController::class, 'show']);
+Route::put('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'destroy']);
+Route::delete('/users/bulk/delete', [UserController::class, 'bulkDelete']);
